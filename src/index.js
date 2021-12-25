@@ -2,6 +2,7 @@ const fs = require('fs');
 const nodeCron = require('node-cron');
 const path = require('path');
 const getTestResults = require('./getTestResults');
+const discordNotification = require('./discordNotification');
 
 let config = {};
 
@@ -22,6 +23,16 @@ try {
     }
 }
 
+const handleNewResult = async (result) => {
+    const msg = `${config.FirstName}: Your test result from ${
+        result.split('|')[0]
+    } came back as ${result.split('|')[1]}`;
+    log(msg);
+    if (config.WebHookURL) {
+        await discordNotification(msg);
+    }
+};
+
 async function main() {
     const testResults = await getTestResults(config);
     if (testResults?.data?.ObservationCount > (config.TestCount || 0)) {
@@ -31,11 +42,8 @@ async function main() {
             JSON.stringify(config, null, 2)
         );
         for (let i = 1; i <= testResults.data.ObservationCount; i++) {
-            log(
-                `Test Result: ${JSON.stringify(
-                    testResults.data[`Observation${i}`]
-                )}`
-            );
+            // These are all considered "new" results. So we should print them out.
+            await handleNewResult(testResults.data[`Observation${i}`]);
         }
     } else {
         log('No new results posted.');
