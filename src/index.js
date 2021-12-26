@@ -56,6 +56,6 @@ async function main() {
 
 main();
 
-nodeCron.schedule(config.CronSchedule || '*/5 * * * *', async () => {
+nodeCron.schedule(config.CronSchedule || '*/10 * * * *', async () => {
     await main();
 });
