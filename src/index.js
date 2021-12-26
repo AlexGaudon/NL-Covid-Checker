@@ -3,6 +3,7 @@ const nodeCron = require('node-cron');
 const path = require('path');
 const getTestResults = require('./getTestResults');
 const discordNotification = require('./discordNotification');
+const desktopNotification = require('./desktopNotification');
 
 let config = {};
 
@@ -30,6 +31,9 @@ const handleNewResult = async (result) => {
     log(msg);
     if (config.WebHookURL) {
         await discordNotification(msg);
+    }
+    if (config.desktopNotification) {
+        await desktopNotification(msg);
     }
 };
 
