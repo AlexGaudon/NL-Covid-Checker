@@ -17,7 +17,7 @@ files.forEach((file) => {
 });
 
 if (checkers.length > 0) {
-    cron.schedule('*/1 * * * *', () => {
+    cron.schedule('*/10 * * * *', () => {
         checkers.forEach((chk, i) => {
             setTimeout(() => {
                 chk.run();
