@@ -4,6 +4,7 @@ const path = require('path');
 const getTestResults = require('./getTestResults');
 const discordNotification = require('./discordNotification');
 const desktopNotification = require('./desktopNotification');
+const emailNotification = require('./emailNotification');
 
 let config = {};
 
@@ -34,6 +35,9 @@ const handleNewResult = async (result) => {
     }
     if (config.desktopNotification) {
         await desktopNotification(msg);
+    }
+    if (config.email && config.emailPassword) {
+        emailNotification(msg);
     }
 };
 
