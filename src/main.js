@@ -7,10 +7,13 @@ const { log } = require('./utils');
 const checkers = [];
 
 const files = fs.readdirSync('./configs/');
-console.log(files);
 
 files.forEach((file) => {
-    checkers.push(new covidChecker(path.join(__dirname, '../configs', file)));
+    if (file.endsWith('json')) {
+        checkers.push(
+            new covidChecker(path.join(__dirname, '../configs', file))
+        );
+    }
 });
 
 if (checkers.length > 0) {
