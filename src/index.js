@@ -7,10 +7,7 @@ const desktopNotification = require('./desktopNotification');
 const emailNotification = require('./emailNotification');
 
 let config = {};
-
-const log = (msg) => {
-    console.log(`${new Date().toLocaleString()} ${msg}`);
-};
+const { log } = require('./utils');
 
 // Load config file from the default location.
 try {

@@ -1,18 +1,17 @@
 let nodemailer = require('nodemailer');
-const config = require('../config.json');
 
-const sendEmail = (message) => {
+const sendEmail = (email, password, message) => {
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: config.email,
-            pass: config.emailPassword,
+            user: email,
+            pass: password,
         },
     });
 
     let mailOptions = {
-        from: config.email,
-        to: config.email,
+        from: email,
+        to: email,
         subject: 'COVID Results',
         text: message,
     };

@@ -1,10 +1,9 @@
 const axios = require('axios');
-const config = require('../config.json');
 
-const postMessage = async (message) => {
+const postMessage = async (firstname, message) => {
     const request = {
         content: message,
-        username: `${config.FirstName} COVID Results`,
+        username: `${firstname} COVID Results`,
     };
 
     return axios.post(config.WebHookURL, request);
