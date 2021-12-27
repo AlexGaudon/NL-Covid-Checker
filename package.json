@@ -2,9 +2,9 @@
     "name": "nl-covid-result",
     "version": "1.0.0",
     "description": "A service to check your covid-19 test results in Newfoundland and notify you when they become available.",
-    "main": "index.js",
+    "main": "main.js",
     "scripts": {
-        "start": "node src/index.js"
+        "start": "node src/main.js"
     },
     "keywords": [],
     "author": "Alex Gaudon",
