@@ -17,16 +17,15 @@ The script supports desktop notifications, as well as discord message notificati
     "LastName": "LastName",
     "DOB": "YYYYMMDD",
     "EXP": "YYYYMMDD",
-    "WebHookURL": "https://discord.com/webhook_url_goes_here",
-    "desktopNotifications": false,
-    "email": "test@gmail.com",
-    "emailPassword": "p4ssw0rd123"
+    "email": "test@gmail.com"
 }
 ```
 
 # Email Notifications
 
 The easiest way to set up email notifications is using an ["Application Specific Password"](https://support.google.com/accounts/answer/185833?hl=en) via gmail.
+
+Take the password and configure the .env file with your EMAIL and EMAIL_PASSWORD.
 
 # Debugging
 

@@ -4,8 +4,5 @@
     "LastName": "LastName",
     "DOB": "YYYYMMDD",
     "EXP": "YYYYMMDD",
-    "WebHookURL": "https://discord.com/webhook_url_goes_here",
-    "desktopNotifications": false,
-    "email": "test@gmail.com",
-    "emailPassword": "p4ssw0rd123"
+    "email": "test@gmail.com"
 }
