@@ -1,6 +1,12 @@
 let nodemailer = require('nodemailer');
 
 const sendEmail = (email, message) => {
+    if (!process.env.EMAIL || !process.env.EMAIL_PASSWORD) {
+        console.log(
+            'EMAIL or EMAIL_PASSWORD is null. Please verify you have a .env file!'
+        );
+        process.exit(1);
+    }
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -12,7 +18,7 @@ const sendEmail = (email, message) => {
     let mailOptions = {
         from: process.env.EMAIL,
         to: email,
-        subject: 'Negative COVID Result Posted!',
+        subject: 'COVID Result Posted!',
         text: message,
     };
 
