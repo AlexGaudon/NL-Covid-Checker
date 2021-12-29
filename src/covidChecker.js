@@ -29,7 +29,6 @@ class covidChecker {
         if (this.config.desktopNotification) {
             await desktopNotification(msg);
         }
-
         if (this.config.email) {
             emailNotification(this.config.email, msg);
         }
