@@ -45,7 +45,11 @@ class covidChecker {
                 this.configPath,
                 JSON.stringify(this.config, null, 2)
             );
-            for (let i = 1; i <= testResults.data.ObservationCount; i++) {
+            for (
+                let i = this.config.TestCount;
+                i <= testResults.data.ObservationCount;
+                i++
+            ) {
                 await this.handleNewResult(testResults.data[`Observation${i}`]);
             }
         }
